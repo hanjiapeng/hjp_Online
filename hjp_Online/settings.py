@@ -29,9 +29,9 @@ sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
 SECRET_KEY = '4n5ogn&x*n_^yj5ck@r!6ebv!#aykv-6b4l8mr$%%zynsxy-m$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'captcha',
     'pure_pagination',
 
-    'users',
+    'users.apps.UsersConfig',
     'course',
     'organization',
     'operation',
@@ -143,12 +143,20 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-
+# 静态文件
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# STATIC_ROOT = os.path.join(BASE_DIR,'static2').replace('\\','/')
 STATIC_URL = '/static/'
 # 配置static文件
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'/static/'),
 )
+
+
+
+
+
+
 
 
 # 模型类方法的配置

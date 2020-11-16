@@ -27,6 +27,7 @@ class Course(models.Model):
     category = models.CharField(max_length=20,default='',verbose_name='课程类别')
     teacher = models.ForeignKey(Teacher,null=True,blank=True,on_delete=models.CASCADE,verbose_name='讲师')
     youneed_know = models.CharField(max_length=300,default='',verbose_name='课程须知')
+    is_banner = models.BooleanField(default=False,verbose_name='是否轮播')
     teacher_tell = models.CharField(max_length=300,default='',verbose_name='老师告诉你')
 
     class Meta:

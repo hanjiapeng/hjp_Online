@@ -1,5 +1,5 @@
 import xadmin
-from .models import UserProfile
+from .models import UserProfile,Banner
 from xadmin import views
 
 
@@ -30,12 +30,19 @@ class UserProfileAdmin(object):
     refresh_times = [3,5]  # 自动刷新(里面是秒数)
 
 
+class BannerAdmin(object):
+    list_display = ['image']
+
+
 xadmin.site.unregister(UserProfile)
 xadmin.site.register(UserProfile,UserProfileAdmin)
 
 
 xadmin.site.register(views.BaseAdminView,BaseSetting)
 xadmin.site.register(views.CommAdminView,GlobalSettings)
+
+# xadmin.site.unregister(Banner)
+xadmin.site.register(Banner,BannerAdmin)
 
 
 

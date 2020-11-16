@@ -11,7 +11,6 @@ class UserProfile(AbstractUser):
         ('male', '男'),
         ('female', '女')
     )
-
     nick_name = models.CharField(max_length=50,default='',verbose_name='昵称')
     birthday = models.DateField(null=True,blank=True,verbose_name='生日')
     gender = models.CharField(max_length=10,choices=gender_choices,default='male',verbose_name='性别')
@@ -32,11 +31,12 @@ class UserProfile(AbstractUser):
 class EmailVerifyRecord(models.Model):
     send_choices = (
         ('register','注册'),
-        ('forget','找回密码')
+        ('forget','找回密码'),
+        ('update_email','修改邮箱'),
     )
     code = models.CharField(max_length=20,verbose_name='验证码')
     email = models.EmailField(max_length=50,verbose_name='邮箱')
-    send_type = models.CharField(choices=send_choices,max_length=10)
+    send_type = models.CharField(choices=send_choices,max_length=20)
     send_time = models.DateTimeField(default=datetime.now)
 
     class Meta:

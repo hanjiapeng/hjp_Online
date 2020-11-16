@@ -36,6 +36,7 @@ class CourseOrg(models.Model):
     image = models.ImageField(verbose_name='封面图',upload_to='org/%Y%m',max_length=100)
     address = models.CharField(verbose_name='机构地址',max_length=150,)
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
+    tag = models.CharField(max_length=10,default='全国知名',verbose_name='机构标签')
     add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:
@@ -65,6 +66,9 @@ class Teacher(models.Model):
     take_office = models.CharField(max_length=100,default='',verbose_name='就职')
     teacher_age = models.IntegerField(default=25,verbose_name='年龄')
     add_time = models.DateTimeField(default=datetime.now)
+
+    def get_course_nums(self):
+        return self.course_set.all().count()
 
     class Meta:
         db_table = 'teacher'

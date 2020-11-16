@@ -87,6 +87,10 @@ class CourseInfoView(LoginRequireMixin,View):
     def get(self,request,course_id):
         course = Course.objects.get(id=int(course_id))
 
+        # 点击数
+        course.students += 1
+        course.save()
+
         # 查询用户是否已经学习了该课程
         user_courses = UserCourse.objects.filter(user=request.user,course=course)
         if not user_courses:
@@ -188,6 +192,9 @@ class VideoPlayView(LoginRequireMixin, View):
             'relate_courses':relate_courses,
             'video':video,
         })
+
+
+
 
 
 
