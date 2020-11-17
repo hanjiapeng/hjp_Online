@@ -69,7 +69,7 @@
                                     {% for banner_course in banner_courses %}
                                     <li>
                                         <a href="{% url 'course:course_detail' banner_course.id %}">
-                                            <img width="470" height="300" src="{{ MEDIA_URL }}{{ banner_course.image }}" />
+                                            <img width="470" height="300" src="{{ MEDIA_URL }}{{ banner_course.image }}" referrerPolicy='no-referrer' />
                                         </a>
                                     </li>
                                     {% endfor %}

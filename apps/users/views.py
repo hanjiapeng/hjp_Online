@@ -17,21 +17,21 @@ from django.shortcuts import render_to_response
 # Create your views here.
 
 
-def pag_not_found(request):
-    # 全局404处理函数
-    # response = render_to_response('errors/../../templates/404.html', {})
-    # response.status_code = 404
-    # return response
-    return render(request,'404.html',status=404)
+# def pag_not_found(request,exception):
+#     # 全局404处理函数
+#     response = render_to_response('404.html', {})
+#     response.status_code = 404
+#     return response
 
 
-
-def page_error(request):
-    # 全局500处理函数
-    from django.shortcuts import render_to_response
-    response = render_to_response('errors/../../templates/500.html', {})
-    response.status_code = 500
-    return response
+#
+#
+# def page_error(request):
+#     # 全局500处理函数
+#     from django.shortcuts import render_to_response
+#     response = render_to_response('500.html', {})
+#     response.status_code = 500
+#     return response
 
 
 class IndexView(View):

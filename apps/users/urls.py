@@ -27,3 +27,4 @@ urlpatterns = [
     path('my_message/', MyMessageView.as_view(), name="my_message"),
     path('quit/',views.quit,name='quit'),
 ]
+
